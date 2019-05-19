@@ -1,0 +1,23 @@
+<!-- Results page 1 : all the information that clients input are wrong -->
+{% extends "reslayout.html" %}
+
+{% block body %}
+
+    <h1>Sorry, Google did not return any results for these searches. </h1>
+    <h1>Please search again.</h1>
+
+    <h3>The following queries did not produce search results:</h3>
+
+    {% for t in recog %}
+        <p>{{ t }}</p>
+    {% endfor %}
+<!-- Search again button -->
+    <div class="container-fluid">
+        <form action="/back" method="POST">
+            <button type="search">Search again</button>
+        </form>
+    </div>
+{% endblock %}
+
+
+

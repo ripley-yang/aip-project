@@ -1,0 +1,59 @@
+<!-- Result page 3: some of the inout information has results -->
+{% extends "reslayout.html" %}
+
+{% block body %}
+
+    <div class="container-fluid">
+            <h1>Results!</h1>
+    </div>
+    <!-- Tree table function design -->
+    <div class="container" style="width:980px;margin:auto;">
+        <table id="ttc" class="treetable">
+            <thead>
+                <tr>
+                    <th>Link</th>
+                    <th>Details</th>
+                    <th>Rank</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for t in new2 %}
+                    <!-- Parent's nods -->
+                    {% if t[3] == "1" %}
+                        <tr data-tt-id={{ t[2] }}>
+                            <td><a href={{ t[4] }} target="_blank" >{{ t[0] }}</a></td>
+                            <td>{{ t[1] }}/{{ k }}</td>
+                            <td style="color:white;">/</td>
+                        </tr>
+                    {% endif %}
+                    <!-- Leaf's nods -->
+                    {% if t[3] == "0" %}
+                        <tr data-tt-id=" " data-tt-parent-id={{ t[2] }}>
+                            <td><a href={{ t[0] }} target="_blank">{{ t[0] }}</a></td>
+                            <td>{{ t[1] }}</td>
+                            <td>{{ t[4] }}</td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <!-- Javascript to make the tree table dynamic -->
+    <script type="text/javascript">
+        $("#ttc").treetable({ expandable: true });
+    </script>
+
+    <div class="container-fluid">
+        <h1>The following queries did not produce search results:</h1>
+        {% for t in recog %}
+            <p>{{ t }}</p>
+        {% endfor %}
+    </div>
+
+    <!-- Search again button -->
+    <div class="container-fluid">
+        <form action="/back" method="POST">
+            <button type="search">Search again</button>
+        </form>
+    </div>
+{% endblock %}

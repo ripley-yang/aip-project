@@ -1,0 +1,19 @@
+<!-- Result page layout -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <link rel="stylesheet" href="{{ url_for('static', filename='styles/screen.css') }}" />
+      <link rel="stylesheet" href="{{ url_for('static', filename='styles/result.css') }}" />
+      <link rel="stylesheet" href="{{ url_for('static', filename='styles/jquery.treetable.css') }}" />
+      <link rel="stylesheet" href="{{ url_for('static', filename='styles/jquery.treetable.theme.default.css') }}" />
+      <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+      <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-ui.js') }}"></script>
+      <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.treetable.js') }}"></script>
+
+  </head>
+  <body>
+    <main>
+      {% block body %}{% endblock %}
+    </main>
+  </body>
+</html>

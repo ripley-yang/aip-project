@@ -1,0 +1,32 @@
+<!-- This is the searching page information -->
+{% extends "layout.html" %}
+
+{% block body %}
+    <div class="hero-unit">
+        <h1>Hello, Developers!</h1>
+        <h4>This is an API (Application Programming Interface) search website. After clicking the Search button, you will see where Google finds documentation for a particular API. See <a href=https://cs.adelaide.edu.au/~christoph/wapi18.pdf target="_blank" >https://cs.adelaide.edu.au/~christoph/wapi18.pdf</a> for more information.</h4>
+
+        <div class="container-fluid">
+            <!-- Main hero unit for a primary marketing message or call to action-->
+                <!-- row of columns -->
+            <form action="/search" method="POST" id="tryt">
+                <div class="row-fluid">
+                    <div class="span10">
+                        <h2>API Search Menu</h2>
+                    </div>
+                </div>
+                <h3>API Name</h3>
+                <p>Please input the name of one API for which you would like to conduct a search, such as Java, JQuery, or Android.</p>
+                <label for="name" style="color:#51779a;"><strong>Name</strong></label>
+                <input id="name" type="text" name="name" placeholder="Java" style='width:30%' style="width: 330px" required />
+                <h3>API Elements</h3>
+                <p>Please input a comma-separated list of elements for this API (e.g., methods or classes), such as ArrayList, HashMap, LinkedList. Use comma to separate API elements.</p>
+                <p>Please do not input more than 65 elements!</p>
+                <label for="method" style="color:#51779a;"><strong>Elements</strong></label>
+                <input id="method" type="text" name="method" placeholder="ArrayList,add,delete" style='width:100%' style="width: 1010px" required />
+                <br>
+                <button type="search">Search</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
